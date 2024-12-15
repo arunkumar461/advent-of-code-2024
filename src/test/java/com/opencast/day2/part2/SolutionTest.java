@@ -10,16 +10,14 @@ class SolutionTest {
 
     @Test
     void shouldReturnCorrectAnswerForAoCExample() {
-        //given
-        //when//then
+      
         assertThat(Solution.countNumberOfSafeReports(InputReader.readInput("day2/input.txt")))
                 .isEqualTo(710);
     }
 
     @Test
     void shouldReturnCorrectAnswerForAoCPuzzleInput() {
-        //given
-        //when//then
+      
         assertThat(Solution.countNumberOfSafeReports(InputReader.readInput("day2/testInput.txt")))
                 .isEqualTo(4);
     }

@@ -9,16 +9,14 @@ class SolutionTest {
 
     @Test
     void shouldReturnCorrectAnswerForAoCExample() {
-        //given
-        //when//then
+      
         assertThat(Solution.getDistancesSummary(InputReader.readInput("day1/testInput.txt")))
                 .isEqualTo(11);
     }
 
     @Test
     void shouldReturnCorrectAnswerForAoCPuzzleInput() {
-        //given
-        //when//then
+      
         assertThat(Solution.getDistancesSummary(InputReader.readInput("day1/input.txt")))
                 .isEqualTo(1941353);
     }

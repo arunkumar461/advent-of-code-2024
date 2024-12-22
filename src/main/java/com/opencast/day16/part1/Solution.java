@@ -7,7 +7,7 @@ import com.opencast.day16.Position;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class SolutionDjikstra {
+public class Solution {
     private static final HashMap<Candidate, Long> cache = new HashMap<>();
 
     public static long getMinimumScore(List<String> input) {

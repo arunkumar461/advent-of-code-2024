@@ -3,15 +3,20 @@ package com.opencast.day25;
 import com.opencast.InputReader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Solution {
 
     public static void main(String[] args) {
-        List<String> input = InputReader.readInput("day25/input.txt");
+        List<String> input = InputReader.readInput("day25/input.txt")
+                .stream()
+                .map(String::trim)
+                .collect(Collectors.toList());
 
         List<int[]> locks = new ArrayList<>();
         List<int[]> keys = new ArrayList<>();
@@ -31,15 +36,20 @@ public class Solution {
         }
 
         long matches = locks.stream()
-                .flatMap(lock -> keys.stream()
-                        .filter(key -> {
-                            for (int i = 0; i < lock.length; i++) {
-                                if (lock[i] + key[i] > 5) {
-                                    return false;
-                                }
-                            }
-                            return true;
-                        }))
+                .flatMap(lock ->
+                        {
+                            System.out.println(Arrays.toString(lock));
+                            return keys.stream()
+                                    .filter(key -> {
+                                        for (int i = 0; i < lock.length; i++) {
+                                            if (lock[i] + key[i] > 5) {
+                                                return false;
+                                            }
+                                        }
+                                        return true;
+                                    });
+                        }
+                )
                 .count();
 
         System.out.println("solution #1: " + matches);

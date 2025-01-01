@@ -23,7 +23,6 @@ public class Solution {
                 .map(split(" "))
                 .collect(Collectors.toMap(parts -> parts[4], parts -> new String[]{parts[1], parts[0], parts[2]}));
 
-        // Fix for recursive function
         final Function<String, Long>[] getValueRef = new Function[1];
         getValueRef[0] = cache(out -> {
             if (initialValues.containsKey(out)) {
@@ -56,10 +55,6 @@ public class Solution {
         System.out.println("solution #1: " + Long.parseLong(binaryResult, 2));
 
         System.out.println("\n-----------------------------------------------------------\n");
-
-        /* * * * * * * *
-         * * Part #2 * *
-         * * * * * * * */
 
         String xFirst = initialValues.keySet()
                 .stream()
@@ -109,7 +104,6 @@ public class Solution {
                     if (!out.startsWith("z") && !a.startsWith("x")) {
                         errors.add(out);
                     }
-                    // Fall-through intentional
                 case "AND":
                     if (!a.startsWith("x")) {
                         String[] A = gates.get(a);
